@@ -15,17 +15,16 @@
     </style>
 </head>
 
-<body style="float:left;">
-    <canvas id="canvas" style="width: 200px;;height: 200px;;"></canvas>
+<body>
 
     <div>
         <div>Dealer:
-            <div id="dealerCards">King</div>
+            <div id="p0Cards">King</div>
         </div>
 
         <div>------------------</div>
     </div>
-
+    <div style="float:right">
     <div>
         <div>Player1:
             <div>Total Wallet:</div>
@@ -77,6 +76,7 @@
 
         <div>------------------</div>
     </div>
+    </div>
 
     <div>
         <div>Turn:</div>
@@ -91,8 +91,8 @@
         <button id="stand" type="button" onclick="standButton()">Stand</button>
     </div>
     <div>
-        <input type="text"></input>
-        <button id="placeBet" type="button">Place Bet</button>
+        <input id="betInput" type="text"></input>
+        <button id="placeBet" type="button" onclick="betButton()">Place Bet</button>
     </div>
 </body>
 
