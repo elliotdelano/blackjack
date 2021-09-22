@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html style="overflow:hidden;overflow-x:hidden;">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html,
+        body,
+        div,
+        canvas {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body style="float:left;">
+    <canvas id="canvas" style="width: 200px;;height: 200px;;"></canvas>
+
+    <div>
+        <div>Dealer:
+            <div id="dealerCards">King</div>
+        </div>
+
+        <div>------------------</div>
+    </div>
+
+    <div>
+        <div>Player1:
+            <div>Total Wallet:</div>
+            <div id="p1TotalWallet">$500</div>
+            <div>Current Bet:</div>
+            <div id="p1CurrentBet">$0</div>
+            <div>Hand:</div>
+            <div id="p1Cards">King</div>
+        </div>
+
+        <div>------------------</div>
+    </div>
+
+    <div>
+        <div>Player2:
+            <div>Total Wallet:</div>
+            <div id="p2TotalWallet">$500</div>
+            <div>Current Bet:</div>
+            <div id="p2CurrentBet">$0</div>
+            <div>Hand:</div>
+            <div id="p2Cards">King</div>
+        </div>
+
+        <div>------------------</div>
+    </div>
+
+    <div>
+        <div>Player3:
+            <div>Total Wallet:</div>
+            <div id="p3TotalWallet">$500</div>
+            <div>Current Bet:</div>
+            <div id="p3CurrentBet">$0</div>
+            <div>Hand:</div>
+            <div id="p3Cards">King</div>
+        </div>
+
+        <div>------------------</div>
+    </div>
+
+    <div>
+        <div>Player4:
+            <div>Total Wallet:</div>
+            <div id="p4TotalWallet">$500</div>
+            <div>Current Bet:</div>
+            <div id="p4CurrentBet">$0</div>
+            <div>Hand:</div>
+            <div id="p4Cards">King</div>
+        </div>
+
+        <div>------------------</div>
+    </div>
+
+    <div>
+        <div>Turn:</div>
+        <div id="currentTurn">Player 1</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.5/pixi.min.js"></script>
+    <script src="main.js"></script>
+
+    <div>
+        <button id="hit" type="button" onclick="hitButton()">Hit</button>
+        <button id="stand" type="button" onclick="standButton()">Stand</button>
+    </div>
+    <div>
+        <input type="text"></input>
+        <button id="placeBet" type="button">Place Bet</button>
+    </div>
+</body>
+
+</html>
