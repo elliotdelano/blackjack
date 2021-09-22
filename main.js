@@ -31,7 +31,7 @@ class Game {
 
     onPlayerHit() {
         this['p' + this.currentPlayer].addCard(this.playingCards.getTop());
-        if (Deck.handValue(this['p' + this.currentPlayer].hand) >= 21) {
+        if (Game.Deck.handValue(this['p' + this.currentPlayer].hand) >= 21) {
             this.onPlayerStand();
         }
     }
