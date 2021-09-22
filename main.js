@@ -79,6 +79,7 @@ class Game {
     onPlaceBet() {
         if(this.hasBets) return;
         let amount = getElement("betInput").value;
+        if(this['p' + this.currentPlayer].totalCash == 0) this['p' + this.currentPlayer].totalCash = 500;
         if(amount > this['p' + this.currentPlayer].totalCash || amount < 10) return;
         this['p' + this.currentPlayer].placeBet(amount);
         if(this.currentPlayer == 4) {
