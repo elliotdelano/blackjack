@@ -35,8 +35,8 @@ class Game {
     }
 
     onPlayerHit() {
-        if(!this.hasBets) return;
-        if(this.turnsOver) return;
+        if (!this.hasBets) return;
+        if (this.turnsOver) return;
 
         let v = Game.Deck.handValue(this['p' + this.currentPlayer].hand);
         if (v >= 21) {
@@ -56,33 +56,33 @@ class Game {
     }
 
     onPlayerStand() {
-        if(!this.hasBets) return;
+        if (!this.hasBets) return;
         if (this.currentPlayer == 4) {
             this.turnsOver = true;
             this.dealDealerDeals();
         } else {
             this.currentPlayer += 1;
         }
-        
-        
+
+
         this.update()
     }
 
     firstHand() {
         this.dealer.addCard(this.playingCards.getTop());
-        for(let i = 0; i < this.playerCount; i++) {
-            this['p' + (i+1)].addCard(this.playingCards.getTop());
-            this['p' + (i+1)].addCard(this.playingCards.getTop());
+        for (let i = 0; i < this.playerCount; i++) {
+            this['p' + (i + 1)].addCard(this.playingCards.getTop());
+            this['p' + (i + 1)].addCard(this.playingCards.getTop());
         }
     }
 
     onPlaceBet() {
-        if(this.hasBets) return;
+        if (this.hasBets) return;
         let amount = getElement("betInput").value;
-        if(this['p' + this.currentPlayer].totalCash == 0) this['p' + this.currentPlayer].totalCash = 500;
-        if(amount > this['p' + this.currentPlayer].totalCash || amount < 10) return;
+        if (this['p' + this.currentPlayer].totalCash == 0) this['p' + this.currentPlayer].totalCash = 500;
+        if (amount > this['p' + this.currentPlayer].totalCash || amount < 10) return;
         this['p' + this.currentPlayer].placeBet(amount);
-        if(this.currentPlayer == 4) {
+        if (this.currentPlayer == 4) {
             this.currentPlayer = 1;
             this.hasBets = true;
             this.firstHand()
@@ -94,11 +94,11 @@ class Game {
     }
 
     dealDealerDeals() {
-        if(Game.Deck.handValue(this.dealer.hand) < 17) {
+        if (Game.Deck.handValue(this.dealer.hand) < 17) {
             this.dealer.addCard(this.playingCards.getTop());
         }
 
-        if(Game.Deck.handValue(this.dealer.hand) < 17) {
+        if (Game.Deck.handValue(this.dealer.hand) < 17) {
             this.dealDealerDeals();
         } else {
             this.roundEnd();
@@ -109,20 +109,20 @@ class Game {
         this.currentPlayer = 1;
         let dealerValue = Game.Deck.handValue(this.dealer.hand);
         console.log(dealerValue);
-        if(dealerValue > 21) {
-            for(let i = 0; i < this.playerCount; i++) {
-                this['p' + (i+1)].win();
+        if (dealerValue > 21) {
+            for (let i = 0; i < this.playerCount; i++) {
+                this['p' + (i + 1)].win();
             }
         } else {
-            for(let i = 0; i < this.playerCount; i++) {
-                let pHand = Game.Deck.handValue(this['p' + (i+1)].hand); 
-                if(pHand > 21) {
-                    this['p' + (i+1)].lose();
+            for (let i = 0; i < this.playerCount; i++) {
+                let pHand = Game.Deck.handValue(this['p' + (i + 1)].hand);
+                if (pHand > 21) {
+                    this['p' + (i + 1)].lose();
                 }
                 else if (pHand > dealerValue) {
-                    this['p' + (i+1)].win();
+                    this['p' + (i + 1)].win();
                 } else {
-                    this['p' + (i+1)].lose();
+                    this['p' + (i + 1)].lose();
                 }
             }
         }
@@ -141,7 +141,7 @@ class Game {
             this.currentBid = 0;
             this.hand = [];
             this.handDisplay = getElement('p' + this.playerNum + 'Cards');
-            if(this.playerNum != 0) {
+            if (this.playerNum != 0) {
                 this.currentBidCounter = getElement('p' + this.playerNum + 'CurrentBet');
                 this.totalCashCounter = getElement('p' + this.playerNum + 'TotalWallet');
             }
@@ -149,11 +149,11 @@ class Game {
         }
 
         update() {
-            if(this.playerNum != 0) {
+            if (this.playerNum != 0) {
                 this.totalCashCounter.innerHTML = '$' + this.totalCash;
                 this.currentBidCounter.innerHTML = '$' + this.currentBid;
             }
-            
+
             let cards = "";
             for (let c of this.hand) {
                 cards += c;
@@ -175,7 +175,7 @@ class Game {
         win() {
             console.dir(this);
             console.log(" Won!");
-            this.totalCash += this.currentBid*2;
+            this.totalCash += this.currentBid * 2;
             this.currentBid = 0;
             this.hand = [];
             this.update();
@@ -254,7 +254,7 @@ class Game {
 
         static cardValue(card) {
             let id = card[0]
-            if(id == "1") id = "10";
+            if (id == "1") id = "10";
             switch (id) {
                 case "2":
                     return 2
@@ -301,6 +301,33 @@ class Game {
                 this.cards.push(temp[Math.floor(Math.random() * temp.length)]);
             }
         }
+    }
+}
+
+class Network {
+    constructor() {
+
+    }
+
+    Layer = class {
+        constructor() {
+
+        }
+
+    }
+
+    Neuron = class {
+        constructor() {
+
+        }
+
+    }
+
+    Connection = class {
+        constructor() {
+
+        }
+
     }
 }
 
